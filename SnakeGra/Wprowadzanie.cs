@@ -14,7 +14,7 @@ namespace Snake
 
         public static bool Klawisze(Keys klawisz)
         {
-            if (Przyciski[przycisk] == null)
+            if (Przyciski[klawisz] == null)
             {
                 return false;
             }
@@ -22,7 +22,7 @@ namespace Snake
             return (bool)Przyciski[klawisz];
         }
 
-        public static void ZmianaStatusu(Keys key, bool status)
+        public static void ZmianaStatusu(Keys klawisz, bool status)
         {
             Przyciski[klawisz] = status;
         }

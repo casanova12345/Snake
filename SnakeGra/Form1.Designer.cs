@@ -86,6 +86,8 @@
             this.Controls.Add(this.plansza);
             this.Name = "Form1";
             this.Text = "Snake";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.plansza)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

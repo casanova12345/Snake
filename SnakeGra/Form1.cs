@@ -17,21 +17,21 @@ namespace Snake
         public Form1()
         {
             InitializeComponent();
-            
+
             new Ustawienia();
-           
+
             Timer.Interval = 1000 / Ustawienia.Predkosc;
             Timer.Tick += Odswiez;
             Timer.Start();
-            
+
             StartGry();
         }
         private void StartGry()
         {
             lblKoniecGry.Visible = false;
-            
+
             new Ustawienia();
-            
+
             Snake.Clear();
             Kolo glowa = new Kolo { X = 10, Y = 5 };
             Snake.Add(glowa);
@@ -43,14 +43,14 @@ namespace Snake
             int maxXPos = plansza.Size.Width / Ustawienia.Szerokosc;
             int maxYPos = plansza.Size.Height / Ustawienia.Wysokosc;
             Random random = new Random();
-            jedzenie = new Kolo {X = random.Next(0, maxXPos), Y = random.Next(0, maxYPos)};
-    }
+            jedzenie = new Kolo { X = random.Next(0, maxXPos), Y = random.Next(0, maxYPos) };
+        }
         private void Odswiez(object sender, EventArgs e)
         {
-            
+
             if (Ustawienia.KoniecGry)
             {
-            
+
                 if (Wprowadzanie.Klawisze(Keys.Enter))
                 {
                     StartGry();
@@ -81,16 +81,16 @@ namespace Snake
                 {
                     Brush snakeColour;
                     if (i == 0)
-                        snakeColour = Brushes.Black; 
+                        snakeColour = Brushes.Black;
                     else
-                        snakeColour = Brushes.Green; 
- 
-                    canvas.FillEllipse(snakeColour,
+                        snakeColour = Brushes.Green;
+
+                    plansza.FillEllipse(snakeColour,
                         new Rectangle(Snake[i].X * Ustawienia.Szerokosc,
                                       Snake[i].Y * Ustawienia.Wysokosc,
                                       Ustawienia.Szerokosc, Ustawienia.Wysokosc));
 
-                    canvas.FillEllipse(Brushes.Red,
+                    plansza.FillEllipse(Brushes.Red,
                         new Rectangle(jedzenie.X * Ustawienia.Szerokosc,
                              jedzenie.Y * Ustawienia.Wysokosc, Ustawienia.Szerokosc, Ustawienia.Wysokosc));
                 }
@@ -101,11 +101,12 @@ namespace Snake
                 lblKoniecGry.Text = KoniecGry;
                 lblKoniecGry.Visible = true;
             }
-            private void Ruch()
+        }
+        private void Ruch()
         {
             for (int i = Snake.Count - 1; i >= 0; i--)
             {
-               
+
                 if (i == 0)
                 {
                     switch (Ustawienia.kierunek)
@@ -126,34 +127,47 @@ namespace Snake
 
                     int maxXPos = plansza.Size.Width / Ustawienia.Szerokosc;
                     int maxYPos = plansza.Size.Height / Ustawienia.Wysokosc;
-  
+
                     if (Snake[i].X < 0 || Snake[i].Y < 0
                         || Snake[i].X >= maxXPos || Snake[i].Y >= maxYPos)
                     {
-                        Smierc();
+                        // Smierc();
                     }
- 
+
                     for (int j = 1; j < Snake.Count; j++)
                     {
                         if (Snake[i].X == Snake[j].X &&
                            Snake[i].Y == Snake[j].Y)
                         {
-                           Smierc();
+                            //Smierc();
                         }
                     }
- 
+
                     if (Snake[0].X == jedzenie.X && Snake[0].Y == jedzenie.Y)
                     {
-                        Jesc();
+                        //Jesc();
                     }
                 }
                 else
                 {
- 
+
                     Snake[i].X = Snake[i - 1].X;
                     Snake[i].Y = Snake[i - 1].Y;
                 }
             }
         }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            Wprowadzanie.ZmianaStatusu(e.KeyCode, true);
         }
+
+        private void Form1_KeyUp(object sender, KeyEventArgs e)
+        {
+            Wprowadzanie.ZmianaStatusu(e.KeyCode, false);
+        }
+
+    }
 }
+
+
