@@ -101,5 +101,59 @@ namespace Snake
                 lblKoniecGry.Text = KoniecGry;
                 lblKoniecGry.Visible = true;
             }
+            private void Ruch()
+        {
+            for (int i = Snake.Count - 1; i >= 0; i--)
+            {
+               
+                if (i == 0)
+                {
+                    switch (Ustawienia.kierunek)
+                    {
+                        case Kierunek.Right:
+                            Snake[i].X++;
+                            break;
+                        case Kierunek.Left:
+                            Snake[i].X--;
+                            break;
+                        case Kierunek.Up:
+                            Snake[i].Y--;
+                            break;
+                        case Kierunek.Down:
+                            Snake[i].Y++;
+                            break;
+                    }
+
+                    int maxXPos = plansza.Size.Width / Ustawienia.Szerokosc;
+                    int maxYPos = plansza.Size.Height / Ustawienia.Wysokosc;
+  
+                    if (Snake[i].X < 0 || Snake[i].Y < 0
+                        || Snake[i].X >= maxXPos || Snake[i].Y >= maxYPos)
+                    {
+                        Smierc();
+                    }
+ 
+                    for (int j = 1; j < Snake.Count; j++)
+                    {
+                        if (Snake[i].X == Snake[j].X &&
+                           Snake[i].Y == Snake[j].Y)
+                        {
+                           Smierc();
+                        }
+                    }
+ 
+                    if (Snake[0].X == jedzenie.X && Snake[0].Y == jedzenie.Y)
+                    {
+                        Jesc();
+                    }
+                }
+                else
+                {
+ 
+                    Snake[i].X = Snake[i - 1].X;
+                    Snake[i].Y = Snake[i - 1].Y;
+                }
+            }
+        }
         }
 }
