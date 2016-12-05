@@ -45,6 +45,7 @@
             this.plansza.Size = new System.Drawing.Size(356, 380);
             this.plansza.TabIndex = 0;
             this.plansza.TabStop = false;
+            this.plansza.Paint += new System.Windows.Forms.PaintEventHandler(this.plansza_Paint);
             // 
             // lblPunkty
             // 

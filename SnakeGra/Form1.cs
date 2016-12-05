@@ -70,4 +70,36 @@ namespace Snake
             }
             plansza.Invalidate();
         }
+
+        private void plansza_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics plansza = e.Graphics;
+            if (!Ustawienia.KoniecGry)
+            {
+
+                for (int i = 0; i < Snake.Count; i++)
+                {
+                    Brush snakeColour;
+                    if (i == 0)
+                        snakeColour = Brushes.Black; 
+                    else
+                        snakeColour = Brushes.Green; 
+ 
+                    canvas.FillEllipse(snakeColour,
+                        new Rectangle(Snake[i].X * Ustawienia.Szerokosc,
+                                      Snake[i].Y * Ustawienia.Wysokosc,
+                                      Ustawienia.Szerokosc, Ustawienia.Wysokosc));
+
+                    canvas.FillEllipse(Brushes.Red,
+                        new Rectangle(jedzenie.X * Ustawienia.Szerokosc,
+                             jedzenie.Y * Ustawienia.Wysokosc, Ustawienia.Szerokosc, Ustawienia.Wysokosc));
+                }
+            }
+            else
+            {
+                string KoniecGry = "Koniec Gry \nTwoje zdobyte punkty: " + Ustawienia.Wynik + "\nNacisnij Enter aby zaczac ponownie";
+                lblKoniecGry.Text = KoniecGry;
+                lblKoniecGry.Visible = true;
+            }
+        }
 }
