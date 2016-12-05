@@ -38,5 +38,11 @@ namespace Snake
             lblPunkty2.Text = Ustawienia.Wynik.ToString();
             GenerowanieJedzenia();
         }
+        private void GenerowanieJedzenia()
+        {
+            int maxXPos = plansza.Size.Width / Ustawienia.Szerokosc;
+            int maxYPos = plansza.Size.Height / Ustawienia.Wysokosc;
+            Random random = new Random();
+            jedzenie = new Kolo {X = random.Next(0, maxXPos), Y = random.Next(0, maxYPos)};
     }
 }
