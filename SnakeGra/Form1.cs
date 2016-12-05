@@ -45,4 +45,29 @@ namespace Snake
             Random random = new Random();
             jedzenie = new Kolo {X = random.Next(0, maxXPos), Y = random.Next(0, maxYPos)};
     }
+        private void Odswiez(object sender, EventArgs e)
+        {
+            
+            if (Ustawienia.KoniecGry)
+            {
+            
+                if (Wprowadzanie.Klawisze(Keys.Enter))
+                {
+                    StartGry();
+                }
+            }
+            else
+            {
+                if (Wprowadzanie.Klawisze(Keys.Right) && Ustawienia.kierunek != Kierunek.Left)
+                    Ustawienia.kierunek = Kierunek.Right;
+                else if (Wprowadzanie.Klawisze(Keys.Left) && Ustawienia.kierunek != Kierunek.Right)
+                    Ustawienia.kierunek = Kierunek.Left;
+                else if (Wprowadzanie.Klawisze(Keys.Up) && Ustawienia.kierunek != Kierunek.Down)
+                    Ustawienia.kierunek = Kierunek.Up;
+                else if (Wprowadzanie.Klawisze(Keys.Down) && Ustawienia.kierunek != Kierunek.Up)
+                    Ustawienia.kierunek = Kierunek.Down;
+                Ruch();
+            }
+            plansza.Invalidate();
+        }
 }

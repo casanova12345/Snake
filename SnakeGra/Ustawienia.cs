@@ -8,10 +8,10 @@ namespace Snake
 {
     public enum Kierunek
     {
-        Gora,
-        Dol,
-        Lewo,
-        Prawo
+        Up,
+        Down,
+        Left,
+        Right
     };
     public class Ustawienia
     {
@@ -30,7 +30,7 @@ namespace Snake
             Wynik = 0;
             Punkty = 1;
             KoniecGry = false;
-            kierunek = Kierunek.Dol;
+            kierunek = Kierunek.Down;
         }
     }
   
