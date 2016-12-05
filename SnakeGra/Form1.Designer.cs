@@ -33,6 +33,7 @@
             this.lblPunkty = new System.Windows.Forms.Label();
             this.lblPunkty2 = new System.Windows.Forms.Label();
             this.Timer = new System.Windows.Forms.Timer(this.components);
+            this.lblKoniecGry = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.plansza)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,12 +65,21 @@
             this.lblPunkty2.Size = new System.Drawing.Size(0, 33);
             this.lblPunkty2.TabIndex = 2;
             // 
+            // lblKoniecGry
+            // 
+            this.lblKoniecGry.AutoSize = true;
+            this.lblKoniecGry.Location = new System.Drawing.Point(146, 142);
+            this.lblKoniecGry.Name = "lblKoniecGry";
+            this.lblKoniecGry.Size = new System.Drawing.Size(0, 13);
+            this.lblKoniecGry.TabIndex = 3;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(645, 401);
+            this.Controls.Add(this.lblKoniecGry);
             this.Controls.Add(this.lblPunkty2);
             this.Controls.Add(this.lblPunkty);
             this.Controls.Add(this.plansza);
@@ -87,6 +97,7 @@
         private System.Windows.Forms.Label lblPunkty;
         private System.Windows.Forms.Label lblPunkty2;
         private System.Windows.Forms.Timer Timer;
+        private System.Windows.Forms.Label lblKoniecGry;
     }
 }
 

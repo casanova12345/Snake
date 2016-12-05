@@ -26,6 +26,17 @@ namespace Snake
             
             StartGry();
         }
-
+        private void StartGry()
+        {
+            lblKoniecGry.Visible = false;
+            
+            new Ustawienia();
+            
+            Snake.Clear();
+            Kolo glowa = new Kolo { X = 10, Y = 5 };
+            Snake.Add(glowa);
+            lblPunkty2.Text = Ustawienia.Wynik.ToString();
+            GenerowanieJedzenia();
+        }
     }
 }
