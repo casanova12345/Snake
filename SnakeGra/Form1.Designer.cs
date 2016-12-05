@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.plansza = new System.Windows.Forms.PictureBox();
             this.lblPunkty = new System.Windows.Forms.Label();
             this.lblPunkty2 = new System.Windows.Forms.Label();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.plansza)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,6 +75,7 @@
             this.Controls.Add(this.plansza);
             this.Name = "Form1";
             this.Text = "Snake";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.plansza)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -84,6 +87,7 @@
         private System.Windows.Forms.PictureBox plansza;
         private System.Windows.Forms.Label lblPunkty;
         private System.Windows.Forms.Label lblPunkty2;
+        private System.Windows.Forms.Timer timer;
     }
 }
 
