@@ -26,7 +26,7 @@ namespace Snake
         {
             Szerokosc = 20;
             Wysokosc = 20;
-            Predkosc = 15;
+            Predkosc = 13;
             Wynik = 0;
             Punkty = 1;
             KoniecGry = false;

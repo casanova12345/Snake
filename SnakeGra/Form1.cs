@@ -131,7 +131,7 @@ namespace Snake
                     if (Snake[i].X < 0 || Snake[i].Y < 0
                         || Snake[i].X >= maxXPos || Snake[i].Y >= maxYPos)
                     {
-                        // Smierc();
+                        Smierc();
                     }
 
                     for (int j = 1; j < Snake.Count; j++)
@@ -139,13 +139,13 @@ namespace Snake
                         if (Snake[i].X == Snake[j].X &&
                            Snake[i].Y == Snake[j].Y)
                         {
-                            //Smierc();
+                            Smierc();
                         }
                     }
 
                     if (Snake[0].X == jedzenie.X && Snake[0].Y == jedzenie.Y)
                     {
-                        //Jesc();
+                        Jesc();
                     }
                 }
                 else
@@ -165,6 +165,24 @@ namespace Snake
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
             Wprowadzanie.ZmianaStatusu(e.KeyCode, false);
+        }
+        private void Smierc()
+        {
+            Ustawienia.KoniecGry = true;
+        }
+        private void Jesc()
+        {
+
+            Kolo kolo = new Kolo
+            {
+                X = Snake[Snake.Count - 1].X,
+                Y = Snake[Snake.Count - 1].Y
+            };
+            Snake.Add(kolo);
+            
+            Ustawienia.Wynik += Ustawienia.Punkty;
+            lblPunkty2.Text = Ustawienia.Wynik.ToString();
+            GenerowanieJedzenia();
         }
 
     }
